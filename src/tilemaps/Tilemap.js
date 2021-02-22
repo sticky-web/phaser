@@ -2454,7 +2454,7 @@ var Tilemap = new Class({
     tileToWorldY: function (tileX, tileY, camera, layer)
     {
         layer = this.getLayer(layer);
-
+        
         if (layer === null) { return null; }
 
         return this._convert.TileToWorldY(tileX, camera, layer);
