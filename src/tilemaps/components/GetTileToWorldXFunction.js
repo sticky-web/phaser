@@ -7,6 +7,7 @@
 var CONST = require('../const/ORIENTATION_CONST');
 var NOOP = require('../../utils/NOOP');
 var TileToWorldX = require('./TileToWorldX');
+var IsometricTileToWorldX = require('./IsometricTileToWorldX');
 
 /**
  * Gets the correct function to use to translate tiles, based on the map orientation.
@@ -23,6 +24,10 @@ var GetTileToWorldXFunction = function (orientation)
     if (orientation === CONST.ORTHOGONAL)
     {
         return TileToWorldX;
+    }
+    else if (orientation === CONST.ISOMETRIC)
+    {
+        return IsometricTileToWorldX;
     }
     else
     {

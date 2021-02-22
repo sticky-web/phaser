@@ -404,7 +404,7 @@ var Tile = new Class({
     {
         var tilemapLayer = this.tilemapLayer;
 
-        return (tilemapLayer) ? tilemapLayer.tileToWorldX(this.x, camera) : this.x * this.baseWidth;
+        return (tilemapLayer) ? tilemapLayer.tileToWorldX(this.x, this.y, camera) : this.x * this.baseWidth;
     },
 
     /**
@@ -444,7 +444,7 @@ var Tile = new Class({
         // units is the bottom left, so the y coordinate needs to be adjusted by the difference
         // between the base size and this tile's size.
         return tilemapLayer
-            ? tilemapLayer.tileToWorldY(this.y, camera) - (this.height - this.baseHeight) * tilemapLayer.scaleY
+            ? tilemapLayer.tileToWorldY(this.x, this.y, camera) - (this.height - this.baseHeight) * tilemapLayer.scaleY
             : this.y * this.baseHeight - (this.height - this.baseHeight);
     },
 

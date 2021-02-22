@@ -1104,8 +1104,8 @@ var TilemapLayer = new Class({
      * @method Phaser.Tilemaps.TilemapLayer#swapByIndex
      * @since 3.50.0
      *
-     * @param {number} tileA - First tile index.
-     * @param {number} tileB - Second tile index.
+     * @param {number} indexA - First tile index.
+     * @param {number} indexB - Second tile index.
      * @param {number} [tileX] - The left most tile index (in tile coordinates) to use as the origin of the area.
      * @param {number} [tileY] - The top most tile index (in tile coordinates) to use as the origin of the area.
      * @param {number} [width] - How many tiles wide from the `tileX` index the area will be.
@@ -1128,13 +1128,14 @@ var TilemapLayer = new Class({
      * @since 3.50.0
      *
      * @param {number} tileX - The x coordinate, in tiles, not pixels.
+     * @param {number} tileY - The y coordinate, in tiles, not pixels.
      * @param {Phaser.Cameras.Scene2D.Camera} [camera] - The Camera to use when calculating the tile index from the world values.
      *
      * @return {number} The Tile X coordinate converted to pixels.
      */
-    tileToWorldX: function (tileX, camera)
+    tileToWorldX: function (tileX, tileY, camera)
     {
-        return this.tilemap.tileToWorldX(tileX, camera, this);
+        return this.tilemap.tileToWorldX(tileX, tileY, camera, this);
     },
 
     /**
@@ -1144,14 +1145,15 @@ var TilemapLayer = new Class({
      * @method Phaser.Tilemaps.TilemapLayer#tileToWorldY
      * @since 3.50.0
      *
+     * @param {number} tileX - The x coordinate, in tiles, not pixels.
      * @param {number} tileY - The y coordinate, in tiles, not pixels.
      * @param {Phaser.Cameras.Scene2D.Camera} [camera] - The Camera to use when calculating the tile index from the world values.
      *
      * @return {number} The Tile Y coordinate converted to pixels.
      */
-    tileToWorldY: function (tileY, camera)
+    tileToWorldY: function (tileX, tileY, camera)
     {
-        return this.tilemap.tileToWorldY(tileY, camera, this);
+        return this.tilemap.tileToWorldY(tileX, tileY, camera, this);
     },
 
     /**
