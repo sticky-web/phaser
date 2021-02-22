@@ -2420,18 +2420,19 @@ var Tilemap = new Class({
      * @since 3.0.0
      *
      * @param {number} tileX - The x coordinate, in tiles, not pixels.
+     * @param {number} tileY - The y coordinate, in tiles, not pixels.
      * @param {Phaser.Cameras.Scene2D.Camera} [camera] - The Camera to use when calculating the tile index from the world values.
      * @param {(string|number|Phaser.Tilemaps.TilemapLayer)} [layer] - The tile layer to use. If not given the current layer is used.
      *
      * @return {?number} Returns a number, or null if the layer given was invalid.
      */
-    tileToWorldX: function (tileX, camera, layer)
+    tileToWorldX: function (tileX, tileY, camera, layer)
     {
         layer = this.getLayer(layer);
 
         if (layer === null) { return null; }
 
-        return this._convert.TileToWorldX(tileX, camera, layer);
+        return this._convert.TileToWorldX(tileX, tileY, camera, layer);
     },
 
     /**
@@ -2443,13 +2444,14 @@ var Tilemap = new Class({
      * @method Phaser.Tilemaps.Tilemap#tileToWorldY
      * @since 3.0.0
      *
+     * @param {number} tileX - The x coordinate, in tiles, not pixels.
      * @param {number} tileY - The y coordinate, in tiles, not pixels.
      * @param {Phaser.Cameras.Scene2D.Camera} [camera] - The Camera to use when calculating the tile index from the world values.
      * @param {(string|number|Phaser.Tilemaps.TilemapLayer)} [layer] - The tile layer to use. If not given the current layer is used.
      *
      * @return {?number} Returns a number, or null if the layer given was invalid.
      */
-    tileToWorldY: function (tileX, camera, layer)
+    tileToWorldY: function (tileX, tileY, camera, layer)
     {
         layer = this.getLayer(layer);
 
