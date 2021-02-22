@@ -12,12 +12,13 @@
  * @since 3.0.0
  *
  * @param {number} tileX - The x coordinate, in tiles, not pixels.
+ * @param {number} tileY - The y coordinate, in tiles, not pixels.
  * @param {Phaser.Cameras.Scene2D.Camera} camera - The Camera to use when calculating the tile index from the world values.
- * @param {Phaser.Tilemaps.LayerData} layer - The Tilemap Layer to act upon.
+ * @param {Phaser.Tilemaps.LayersData} layer - The Tilemap Layer to act upon.
  *
  * @return {number}
  */
-var TileToWorldX = function (tileX, camera, layer)
+var TileToWorldX = function (tileX, tileY, camera, layer)
 {
     var tileWidth = layer.baseTileWidth;
     var tilemapLayer = layer.tilemapLayer;
